@@ -1,0 +1,38 @@
+@model HospitalAppointmentSystem.Models.Doctor
+
+@using HospitalAppointmentSystem.Extensions
+
+@{
+    ViewData["Title"] = "Doctor Details";
+}
+
+<div class="container mt-5">
+    <div class="card shadow p-4">
+        <h2 class="text-primary">Doctor Details</h2>
+        <hr />
+
+        <p><strong>Doctor ID:</strong> @Model.DoctorId</p>
+        <p><strong>Doctor Name:</strong> @Model.DoctorName</p>
+        <p><strong>Specialization:</strong> @Model.Specialization</p>
+        <p><strong>Experience:</strong> @Model.Experience years</p>
+        <p><strong>Consultation Fee:</strong> ₹@Model.ConsultationFee</p>
+        <p><strong>Service Charge:</strong> ₹100</p>
+
+        <h4 class="text-success">
+            Total Charge: ₹@Model.CalculateTotalCharge()
+        </h4>
+        
+        <a asp-controller="Doctor"
+           asp-action="Book"
+           asp-route-DoctorId="@Model.DoctorId"
+           class="btn btn-success mt-3">
+            Book Appointment
+        </a>
+
+        <a asp-controller="Home"
+           asp-action="Index"
+           class="btn btn-secondary mt-3">
+            Back to Doctor List
+        </a>
+    </div>
+</div>

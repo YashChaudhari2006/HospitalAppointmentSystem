@@ -1,0 +1,20 @@
+@{
+    ViewData["Title"] = "Appointment Confirmation";
+}
+
+<div class="container mt-5">
+    <div class="alert alert-success">
+        <h2>Appointment Request Submitted!</h2>
+        <p>@TempData["Message"]</p>
+        <p><strong>Patient:</strong> @TempData["PatientName"]</p>
+        <p><strong>Doctor:</strong> @TempData["DoctorName"]</p>
+        <p><strong>Date:</strong> @TempData["AppointmentDate"]</p>
+        <p><strong>Total Charge:</strong> ₹@TempData["TotalCharge"]</p>
+    </div>
+
+    <a asp-controller="Home"
+       asp-action="Index"
+       class="btn btn-primary">
+        Back to Doctor List
+    </a>
+</div>
